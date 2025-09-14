@@ -45,7 +45,7 @@
       display: inline-block; background: #d40055; color: white;
       padding: 14px 35px; text-decoration: none; border-radius: 30px;
       font-weight: 600; font-size: 1.1rem; transition: background 0.3s;
-      box-shadow: 0 4px 15px rgba(212, 0, 85, 0.2);
+      box-shadow: 0 4px 15px rgba(212, 0, 85, 0.2); margin: 5px;
     }
     .btn:hover { background: #b00044; }
     .section { padding: 90px 0; }
@@ -124,7 +124,8 @@
     <div class="container">
       <h2>Элегантность начинается с волос</h2>
       <p>Более 20 лет создаю образы, которые подчеркивают вашу индивидуальность.</p>
-      <a href="#contacts" class="btn">Записаться</a>
+      <a href="https://t.me/TanyaStylistBot" target="_blank" class="btn">Записаться через Telegram</a>
+      <a href="#contacts" class="btn">Контакты</a>
     </div>
   </section>
 
@@ -157,12 +158,12 @@
       <h2>Цены</h2>
       <table class="price-table">
         <tr><th>Услуга</th><th>Цена, руб.</th></tr>
-        <tr><td>Окрашивание короткие волосы</td><td>12 000</td></tr>
-        <tr><td>Окрашивание средние волосы</td><td>14 000</td></tr>
-        <tr><td>Окрашивание длинные волосы</td><td>от 16 000</td></tr>
+        <tr><td>Окрашивающая техника (короткие волосы)</td><td>12 000</td></tr>
+        <tr><td>Окрашивающая техника (средние волосы)</td><td>14 000</td></tr>
+        <tr><td>Окрашивающая техника (длинные волосы)</td><td>от 16 000</td></tr>
         <tr><td>Контуринг</td><td>8 000</td></tr>
       </table>
-      <p class="price-note">Все услуги выполняются с использованием профессиональных линеек Kydra и Davines.</p>
+      <p class="price-note">Все услуги выполняются с использованием <span class="brand-highlight">Kydra</span> и <span class="brand-highlight">Davines</span>.</p>
     </div>
   </section>
 
@@ -170,15 +171,15 @@
     <div class="container">
       <h2>Портфолио</h2>
       <div class="portfolio-grid">
-        <img src="images/photo1.jpg" alt="Фото 1" class="portfolio-img">
-        <img src="images/photo2.jpg" alt="Фото 2" class="portfolio-img">
-        <img src="images/photo3.jpg" alt="Фото 3" class="portfolio-img">
-        <img src="images/photo4.jpg" alt="Фото 4" class="portfolio-img">
-        <img src="images/photo5.jpg" alt="Фото 5" class="portfolio-img">
-        <img src="images/photo6.jpg" alt="Фото 6" class="portfolio-img">
-        <img src="images/photo7.jpg" alt="Фото 7" class="portfolio-img">
-        <img src="images/photo8.jpg" alt="Фото 8" class="portfolio-img">
-        <img src="images/photo9.jpg" alt="Фото 9" class="portfolio-img">
+        <img src="images/photo1.jpg" alt="Работа 1" class="portfolio-img">
+        <img src="images/photo2.jpg" alt="Работа 2" class="portfolio-img">
+        <img src="images/photo3.jpg" alt="Работа 3" class="portfolio-img">
+        <img src="images/photo4.jpg" alt="Работа 4" class="portfolio-img">
+        <img src="images/photo5.jpg" alt="Работа 5" class="portfolio-img">
+        <img src="images/photo6.jpg" alt="Работа 6" class="portfolio-img">
+        <img src="images/photo7.jpg" alt="Работа 7" class="portfolio-img">
+        <img src="images/photo8.jpg" alt="Работа 8" class="portfolio-img">
+        <img src="images/photo9.jpg" alt="Работа 9" class="portfolio-img">
       </div>
     </div>
   </section>
@@ -188,8 +189,9 @@
       <h2>Контакты</h2>
       <div class="contacts-content">
         <p>Работает в салоне <a href="https://talivi.ru/" target="_blank">Talivi</a></p>
-        <p>Телефон / WhatsApp: <a href="tel:+79269802144">+7 (926) 980-21-44</a></p>
+        <p>Телефон / WhatsApp: <a href="tel:+74952150307">+7 (495) 215-03-07</a></p>
         <p>Instagram: <a href="https://instagram.com/tanya_stylist" target="_blank">@tanya_stylist</a></p>
+        <p><a href="https://t.me/TanyaStylistBot" target="_blank" class="btn">Записаться через Telegram</a></p>
       </div>
     </div>
   </section>
@@ -200,19 +202,23 @@
     </div>
   </footer>
 
-  <div class="lightbox" id="lightbox"><img src="" alt=""></div>
+  <div class="lightbox" id="lightbox">
+    <img src="" alt="Просмотр" id="lightbox-img">
+  </div>
 
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-          if (entry.isIntersecting) entry.target.classList.add('visible');
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
         });
       }, { threshold: 0.1 });
-      document.querySelectorAll('.animate').forEach(el => observer.observe(el));
+      document.querySelectorAll('.animate').forEach(el => { observer.observe(el); });
 
       const lightbox = document.getElementById('lightbox');
-      const lightboxImg = lightbox.querySelector('img');
+      const lightboxImg = document.getElementById('lightbox-img');
       document.querySelectorAll('.portfolio-img').forEach(img => {
         img.addEventListener('click', () => {
           lightboxImg.src = img.src;
